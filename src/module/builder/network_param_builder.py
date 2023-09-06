@@ -1,6 +1,6 @@
 import yaml
 
-from definitions import logger
+from src.util import logger
 
 from ..components.network_parameters import NetworkParam
 

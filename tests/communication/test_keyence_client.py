@@ -2,7 +2,7 @@ import time
 
 import pytest
 
-from definitions import logger
+from src.util import logger
 from src.module.communication.src.client import Client
 from src.module.communication.src.keyence import KeyenceClient
 

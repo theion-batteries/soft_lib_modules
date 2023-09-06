@@ -3,7 +3,7 @@ from typing import Optional
 
 import yaml
 
-from definitions import  logger
+from src.util import logger
 
 from ..communication import (
     Client,

@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass
 from typing import Callable, Dict
 
-from definitions import logger
+from src.util import logger
 
 
 @dataclass

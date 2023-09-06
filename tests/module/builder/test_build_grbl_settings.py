@@ -1,4 +1,4 @@
-from definitions import logger
+from src.util import logger
 from src.module.builder.grbl_settings_builder import build_grbl_settings
 
 

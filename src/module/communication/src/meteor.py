@@ -1,4 +1,4 @@
-from definitions import logger
+from src.util import logger
 
 from ..src.response import Response
 from .dll import get_meteor_lib

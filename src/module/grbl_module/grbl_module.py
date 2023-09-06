@@ -4,7 +4,7 @@ from typing import Dict
 
 from pubsub import pub
 
-from definitions import logger
+from src.util import logger
 
 from ..builder import build_grbl_settings
 

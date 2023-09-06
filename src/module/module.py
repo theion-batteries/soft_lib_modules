@@ -3,7 +3,7 @@ from abc import ABC
 
 import yaml
 
-from definitions import logger
+from src.util import logger
 
 from .communication import Response, retry
 from .components import ModuleComponent

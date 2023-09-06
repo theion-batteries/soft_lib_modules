@@ -1,6 +1,6 @@
 from enum import Enum
 
-from definitions import logger
+from src.util import logger
 
 from ..src.response import Response
 from .client import Client

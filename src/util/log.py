@@ -2,9 +2,11 @@ import datetime
 import enum
 import logging
 import os
+import sys
 from typing import List, Optional
+from dotenv import load_dotenv
 
-
+load_dotenv()
 class LogLevel(enum.IntEnum):
     """Enum containing all LogLevels.
 
@@ -44,7 +46,7 @@ class LogConfig:
     to start logging.
     """
 
-    __ENTRY_FORMAT = logging.Formatter("%(asctime)s - | %(message)s")
+    __ENTRY_FORMAT = logging.Formatter("%(asctime)s  [%(name)s] | %(message)s")
 
     def __init__(
         self, process_name: str = "", module_name: str = "", step_name: str = ""
@@ -56,19 +58,20 @@ class LogConfig:
         self.__step_name = step_name
         # self.__ENTRY_FORMAT =
 
-    def add_file_log(self, level: LogLevel) -> "LogConfig":
+
+    def add_file_log(self, level: LogLevel, file_path: str) -> "LogConfig":
         """Add a new Log file to the Config Builder.
 
         Arguments:
             level: LogLevel of the added log file.
-
+            file_path: str - file path where log has to be saved
         Returns:
             Reference to the LogConfig instance (builder pattern).
         """
         log_ts = datetime.datetime.today().strftime("%Y-%m-%d_%H-%M-%S")
 
-        log_file = "Wafer_Growing_Module_{}_{}_{}.log".format(
-            self.__process_name, log_ts, str(level)
+        log_file = "{}_{}_{}_{}.log".format(
+            file_path,self.__process_name, log_ts, str(level)
         )
         log_file = os.path.join(os.getcwd(), log_file)
 
@@ -130,8 +133,10 @@ class Log:
                 config: The configuration to apply.
             """
             self.disable()
-
-            logger = logging.getLogger()  #'WGMPythonLog')
+            self.project_name = os.getenv("PROJECT_NAME")
+            if self.project_name is None:
+                sys.exit("set up environment variable PROJECT_NAME and continue .. ")
+            logger = logging.getLogger(self.project_name)
             logger.setLevel(logging.DEBUG)
 
             for handler in config.get_handlers():
@@ -204,7 +209,7 @@ class Log:
                 self.__logger.critical(self.__build_msg(LogLevel.Critical, msg))
 
         def __build_msg(self, loglevel: LogLevel, msg: str) -> str:
-            msg = "{} | {}".format(loglevel.as_equal_len_str(), msg)
+            msg = "  {} | {}".format(loglevel.as_equal_len_str(), msg)
             max_len = self.__config.get_max_msg_length() if self.__config else None
 
             if max_len and (max_len < len(msg)):
@@ -229,13 +234,16 @@ def _build_cfg(
 ) -> LogConfig:
     cfg = LogConfig()
 
+
+
     cfg.set_max_msg_length(200)
 
     if console_level:
         cfg.add_console_log(console_level)
 
     if file_level:
-        cfg.add_file_log(file_level)
+        log_file = os.getenv("LOG_DIR")
+        cfg.add_file_log(file_level,log_file)
     return cfg
 
 
@@ -255,3 +263,55 @@ LOG_CONFIG_ERROR = _build_cfg(LogLevel.Error, LogLevel.Error)
 LOG_CONFIG_CRITICAL_CONSOLE_ONLY = _build_cfg(LogLevel.Critical, None)
 LOG_CONFIG_CRITICAL_FILE_ONLY = _build_cfg(None, LogLevel.Critical)
 LOG_CONFIG_CRITICAL = _build_cfg(LogLevel.Critical, LogLevel.Critical)
+
+LOG_CONFIG_MODE = {
+    "critical": LOG_CONFIG_CRITICAL,
+    "critical_consle": LOG_CONFIG_CRITICAL_CONSOLE_ONLY,
+    "critical_file":LOG_CONFIG_CRITICAL_FILE_ONLY,
+    "error":LOG_CONFIG_ERROR,
+    "error_console":LOG_CONFIG_ERROR_CONSOLE_ONLY,
+    "error_file":LOG_CONFIG_ERROR_FILE_ONLY,
+    "info":LOG_CONFIG_INFO,
+    "info_console":LOG_CONFIG_INFO_CONSOLE_ONLY,
+    "info_file":LOG_CONFIG_INFO_FILE_ONLY,
+    "trace":LOG_CONFIG_TRACE,
+    "trace_console":LOG_CONFIG_TRACE_CONSOLE_ONLY,
+    "trace_file":LOG_CONFIG_TRACE_FILE_ONLY,
+    "warning":LOG_CONFIG_WARNING,
+    "warning_console":LOG_CONFIG_WARNING_CONSOLE_ONLY,
+    "warning_file":LOG_CONFIG_WARNING_FILE_ONLY,
+}
+
+def get_logger():
+
+    logger = Log.get_instance()
+
+
+    config_mode = None
+    log_mode = os.getenv("log_mode")
+
+    log_directory = os.getenv("LOG_DIR")
+
+
+    if log_directory is None:
+        sys.exit("set environment variables like LOG_DIR in .env file and continue ... ")
+
+    print(log_directory)
+
+    if log_mode is None:
+        log_mode = "trace_console"
+        config_mode = LOG_CONFIG_MODE["trace_console"]
+        logger.warning("Log mode is not set up.. setting  up default trace console mode")
+
+    elif LOG_CONFIG_MODE.get(log_mode) is None:
+        raise Exception("Log mode is wrong. read the documentation")
+    else:
+        logger.info(f"setting logger mode to {log_mode}")
+        config_mode = (LOG_CONFIG_MODE[log_mode])
+
+    logger.enable(config_mode)
+    return logger
+
+logger = get_logger()
+
+

@@ -2,7 +2,7 @@ import asyncio
 import time
 from typing import Optional
 
-from definitions import logger
+from src.util import logger
 
 from .client import Client
 from .exception_handler import (

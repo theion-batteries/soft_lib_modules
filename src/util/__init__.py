@@ -24,6 +24,7 @@ __all__ = [
     "ExecuteStepError",
     "InvalidPositionError",
     "KeyenceException",
+    "logger"
 ]
 
 from .error import (
@@ -57,4 +58,5 @@ from .log import (
     Log,
     LogConfig,
     LogLevel,
+    logger
 )
