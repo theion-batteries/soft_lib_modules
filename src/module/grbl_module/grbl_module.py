@@ -1,18 +1,20 @@
 import functools
-import os
 import time
 from typing import Dict
 
-import yaml
 from pubsub import pub
 
-from definitions import CONFIG_DIR, logger
-from src.module.builder.grbl_settings_builder import build_grbl_settings
-from src.module.grbl_module.grbl_position_parser import (
+from definitions import logger
+
+from ..builder import build_grbl_settings
+
+
+
+from .grbl_position_parser import (
     GrblStatus,
     GrblStatusQueryParser,
 )
-from src.module.grbl_module.grbl_state import GrblState
+
 
 from ..communication import Response
 from ..components import ModuleComponent
@@ -47,7 +49,6 @@ class GrblModule(Module):
         Module.__init__(self, eol, ack_str, module_component)
 
         self._current_step_feed_rate = 0.0
-        self.state = GrblState()
 
         self._grbl_status: GrblStatus = GrblStatus(0.0, 0.0, "Alarm")
 

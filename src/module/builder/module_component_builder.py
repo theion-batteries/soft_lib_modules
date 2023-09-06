@@ -4,13 +4,13 @@ from typing import Optional
 import yaml
 
 from definitions import CONFIG_DIR, logger
-from src.module.communication import (
+
+from ..communication import (
     Client,
     KeyenceClient,
     MeteorClient,
     TCPStreamClient,
 )
-from src.util.error import WGMBuildModuleError
 
 from ..components import ModuleComponent, NetworkParam
 from .network_param_builder import build_network_param
@@ -88,7 +88,7 @@ def build_module_component(
         )
         return module_component
     except Exception as e:
-        raise WGMBuildModuleError(str(e))
+        raise e
 
 
 def load_yaml(folder_name: str) -> ModuleComponent:
@@ -99,5 +99,5 @@ def load_yaml(folder_name: str) -> ModuleComponent:
             module_yaml = yaml.safe_load(f)
 
     except Exception as e:
-        raise WGMBuildModuleError(str(e))
+        raise e
     return module_yaml

@@ -2,8 +2,13 @@ import os
 
 import yaml
 
+import sys
+print(sys.path)
+
+
 from definitions import CONFIG_DIR
-from src.module.builder.grbl_configuration import grbl_config
+from .grbl_configuration import grbl_config
+
 
 
 def build_grbl_settings(file_name: str):

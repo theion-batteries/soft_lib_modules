@@ -1,19 +1,6 @@
-import inspect
-import sys
-from typing import Dict
-
-import yaml
-
-from definitions import logger
-from src.util import WGMBuildModuleError
-
 from ..components import ModuleComponent
-from ..dispenser_module import DispenserModule
-from ..grbl_module import GrblModule
-from ..keyence_module import KeyenceModule
 from ..module import Module
 from ..module_factory import ModuleFactory
-from ..trigger_module import TriggerModule
 from .module_component_builder import build_module_component
 
 
@@ -43,4 +30,4 @@ def build_module(yaml_name: str = "", module_name: str = "") -> Module:
         module: Module = factory.get_module(module_component=module_component)
         return module
     except Exception as e:
-        raise WGMBuildModuleError(str(e))
+        raise e

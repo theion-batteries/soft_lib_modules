@@ -1,6 +1,5 @@
 import time
 from abc import ABC
-from typing import Any
 
 import yaml
 

@@ -1,4 +1,3 @@
-import ctypes
 from enum import Enum
 
 from definitions import logger
