@@ -6,15 +6,13 @@ import sys
 print(sys.path)
 
 
-from definitions import CONFIG_DIR
+#from definitions import CONFIG_DIR
 from .grbl_configuration import grbl_config
 
 
 
 def build_grbl_settings(file_name: str):
     try:
-        folder_name = os.path.join(CONFIG_DIR, "settings")
-        file_name = os.path.join(folder_name, file_name + ".yaml")
         grbl_settings_yaml: yaml.YAMLObject = None
         with open(file_name, "r") as f:
             grbl_settings_yaml = yaml.safe_load(f)

@@ -2,13 +2,12 @@ import os
 
 import yaml
 
-from definitions import SETTINGS_DIR, logger
+from definitions import logger
 
 
 class GrblSettingsParser:
-    def __init__(self, module_name):
-        file_name = module_name + ".yaml"
-        self._module_settings_file = os.path.join(SETTINGS_DIR, file_name)
+    def __init__(self, settings_file_name):
+        self._module_settings_file = settings_file_name
         self.__load_yaml()
 
     def __load_yaml(self):

@@ -3,7 +3,6 @@ import os
 import pytest
 import yaml
 
-from definitions import CONFIG_DIR
 from src.module.builder.module_component_builder import build_module_component
 
 
@@ -20,7 +19,7 @@ from src.module.builder.module_component_builder import build_module_component
     ],
 )
 def test_keyence_builder(module_type, module_name):
-    file_name = os.path.join(CONFIG_DIR, module_type + ".yaml")
+    file_name = module_type + ".yaml"
 
     with open(file_name, "r") as f:
         module_yaml: yaml.YAMLObject = yaml.safe_load(f)

@@ -3,7 +3,7 @@ from typing import Optional
 
 import yaml
 
-from definitions import CONFIG_DIR, logger
+from definitions import  logger
 
 from ..communication import (
     Client,
@@ -91,11 +91,10 @@ def build_module_component(
         raise e
 
 
-def load_yaml(folder_name: str) -> ModuleComponent:
+def load_yaml(yaml_file: str) -> ModuleComponent:
     try:
-        file_path = os.path.join(CONFIG_DIR, folder_name + ".yaml")
         module_yaml: yaml.YAMLObject = None
-        with open(file_path, "r") as f:
+        with open(yaml_file, "r") as f:
             module_yaml = yaml.safe_load(f)
 
     except Exception as e:
