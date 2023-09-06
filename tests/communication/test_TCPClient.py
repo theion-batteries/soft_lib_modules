@@ -3,7 +3,6 @@ import logging
 import pytest
 
 from src.module.communication import Client, TCPStreamClient
-from src.module.communication import Client, TCPStreamClient
 
 @pytest.mark.skiptest
 @pytest.mark.asyncio

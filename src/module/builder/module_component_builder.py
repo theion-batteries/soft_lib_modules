@@ -52,17 +52,18 @@ def CreateClient(module_type: str, network_param: NetworkParam) -> Client:
 
 
 def build_module_component(
-    yaml_name: str = "", module_name: str = ""
+    yaml_file: str = "", module_name: str = ""
 ) -> ModuleComponent:
     """build module components.It takes either yaml_name and file_name to build yaml object or yaml object
 
     Parameters
     -----------
-    yaml_name: str
+    yaml_file: str
+        - name of the YAML file which contains related components of the Module
 
     module_name: str
+        - assigned name to the particular module
 
-    module_yaml: YAMLObject
 
 
     Returns
@@ -71,7 +72,7 @@ def build_module_component(
 
     """
     try:
-        module_yaml: yaml.YAMLObject = load_yaml(yaml_name)
+        module_yaml: yaml.YAMLObject = load_yaml(yaml_file)
         commands: yaml.YAMLObject = module_yaml.get("commands")
         module_type: str = module_yaml.get("module_type")
         network_params: NetworkParam = build_network_param(
@@ -93,6 +94,7 @@ def build_module_component(
 
 def load_yaml(yaml_file: str) -> ModuleComponent:
     try:
+        logger.trace(yaml_file)
         module_yaml: yaml.YAMLObject = None
         with open(yaml_file, "r") as f:
             module_yaml = yaml.safe_load(f)

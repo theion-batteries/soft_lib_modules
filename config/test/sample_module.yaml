@@ -1,0 +1,19 @@
+module_type: SampleModule # should same as the class name of the Module
+commands:
+  switch_on : "switch_on"
+  switch_off: "switch_off"
+
+
+sample_module:
+  network:
+      ip: "192.168.0.203"
+      port: 8882
+      timeout: 10
+      buffer_size: 4096
+
+test:
+  network:
+    ip: "127.0.0.1"
+    port: 8882
+    timeout: 10
+    buffer_size: 4096

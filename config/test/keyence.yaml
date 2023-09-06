@@ -1,0 +1,11 @@
+module_type: KeyenceModule
+commands:
+    "switch_on": "on"
+    switch_off: switch_off
+    "distance": "?"
+whs_keyence:
+  network:
+    ip: "192.168.0.104" # "192.168.0.104"
+    port: 8883
+    timeout: 10
+    buffer_size: 4096

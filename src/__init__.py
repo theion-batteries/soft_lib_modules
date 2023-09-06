@@ -13,7 +13,6 @@ __all__ = [
     "SerialStreamClient",
     "MeteorClient",
     "ModuleFactory",
-    "build_module",
     "build_module_component",
 
     "Log",
@@ -50,7 +49,6 @@ from .module import    ( Module,
     Response,
     MeteorClient,
     SerialStreamClient,
-    build_module,
     build_module_component,
     build_grbl_settings)
 

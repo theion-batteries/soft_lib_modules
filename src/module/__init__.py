@@ -21,7 +21,6 @@ __all__ = [
 from .builder import (
     CreateClient,
     build_grbl_settings,
-    build_module,
     build_module_component,
     build_network_param,
     load_yaml,

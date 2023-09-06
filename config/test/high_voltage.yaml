@@ -1,0 +1,11 @@
+module_type: HighVoltageModule
+commands:
+    "switch_on": "align"
+    switch_off: "stop"
+
+minipuls:
+  network:
+    ip: "192.168.0.150" # "192.168.0.150"
+    port: 8881
+    timeout: 10
+    buffer_size: 4096

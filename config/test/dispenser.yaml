@@ -1,0 +1,16 @@
+module_type: DispenserModule
+commands:
+    HELP: help
+    switch_on: "on"
+    swtich_off: "off"
+    vibrate: vibrate
+    GETDUR: dur?
+    GETFREQ: freq?
+    SETDUR: dur=
+    SETFREQ: freq=
+cnt_dispenser:
+  network:
+    ip: "192.168.0.203"
+    port: 8881
+    timeout: 10
+    buffer_size: 4096

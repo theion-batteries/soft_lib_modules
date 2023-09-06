@@ -1,0 +1,36 @@
+# check wiki for description
+settings:
+    "step_pulse_us": 10
+    "step_delay_ms": 255
+    "step_invert_mask": 0
+    "dir_invert_mask": 1
+    "step_en_invert_mask": 0
+    "limit_pins_invert_mask": 1
+    "probe_pin_invert_mask": 0
+    "status_report_mask": 1
+    "junction_deviation": 0.01
+    "arc_tolerance": 0.002
+    "report_inches": 0
+    "soft_limits_en": 1
+    "hard_limits_en": 1
+    "homing_cycle_en": 1
+    "homing_cycle_dir": 0
+    "homing_feed": 25
+    "homing_seek": 200
+    "homing_debounce": 250
+    "homing_pulloff": 2
+    "max_spindle_rpm": 1000
+    "min_spindle_rpm": 0
+    "laser_mode": 0
+    "x_steps_mm": 400
+    "y_steps_mm": 10
+    "z_steps_mm": 10
+    "x_rate_mm_min": 1200
+    "y_rate_mm_min": 10
+    "z_rate_mm_min": 10
+    "x_acc_mm_sec": 10
+    "y_acc_mm_sec": 10
+    "z_acc_mm_sec": 10
+    "x_max_travel": 299
+    "y_max_travel": 10
+    "z_max_travel": 10

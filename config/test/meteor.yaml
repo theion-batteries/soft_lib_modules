@@ -1,0 +1,13 @@
+module_type: MeteorModule
+commands:
+    "init_printing": "init"
+    "trigger": "trigger"
+    "stop_printing": "stop"
+    "upload": "upload"
+ph_meteor:
+  network:
+    ip: "127.0.0.1"
+    port: 0
+    timeout: 0
+    buffer_size: 0
+

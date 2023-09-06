@@ -1,0 +1,39 @@
+module_type: GrblModule
+commands:
+  unlock: $X
+  reset_unlock: ""
+  move: X
+  move_check: X
+  rotate: Y
+  rotate_check: Y
+  get_settings: $$
+  set_settings: $$
+  set_speed: $110=
+  get_speed: $110
+  home: $H
+  pause: "!"
+  get_position: "?"
+  reset: "\x18"  # refer https://github.com/grbl/grbl/issues/1544
+  check_target_x_position: "?"
+  feed_rate: 'F'
+
+cnt_motion:
+  network:
+      ip: "192.168.0.203"
+      port: 8882
+      timeout: 10
+      buffer_size: 4096
+
+whs_motion:
+  network:
+    ip: "1921.168.0.204"
+    port: 8882
+    timeout: 10
+    buffer_size: 4096
+
+test:
+  network:
+    ip: "127.0.0.1"
+    port: 8882
+    timeout: 10
+    buffer_size: 4096
