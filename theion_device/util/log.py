@@ -266,7 +266,7 @@ LOG_CONFIG_CRITICAL = _build_cfg(LogLevel.Critical, LogLevel.Critical)
 
 LOG_CONFIG_MODE = {
     "critical": LOG_CONFIG_CRITICAL,
-    "critical_consle": LOG_CONFIG_CRITICAL_CONSOLE_ONLY,
+    "critical_console": LOG_CONFIG_CRITICAL_CONSOLE_ONLY,
     "critical_file": LOG_CONFIG_CRITICAL_FILE_ONLY,
     "error": LOG_CONFIG_ERROR,
     "error_console": LOG_CONFIG_ERROR_CONSOLE_ONLY,

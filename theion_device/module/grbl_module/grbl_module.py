@@ -37,7 +37,6 @@ class GrblModule(Module):
         """Init the GrblModule
          Parameters
         ----------
-        module_component : ModuleComponent
         file_name: str
             yaml file name
 

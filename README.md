@@ -1,6 +1,6 @@
-# **Module Library**
+# Module Library
 
-#### *** Definition of Module:*** ####
+####  Definition of Module: ####
 In this project, a module contains two things:
     
     Hardware Module:
@@ -34,7 +34,7 @@ A **class** of the **Software Module** contains module components and individual
 data from the hardware modules.
 
 ### Module Component 
-Contains 
+A Module component Contains 
 
     o Module name - unique name to identify the Hardware Module  Eg: sample_module, cnt_motion 
     o Module Type - Type of the module  Eg: SampleModule, GrblModule (Reason to give
@@ -44,7 +44,33 @@ Contains
     o Commands - commands for the Hardware module
 
 
-These informations are described in an YAML file and saved under **./config/** folder as given in the template
+These informations are configured in an YAML file and saved under **./config/** folder as given in the template
+
+
+#### Example YAML file:
+
+    module_type: GrblModule   # Type of the grbl module
+    commands:                 # list of commands implemented in grbl Module  
+      unlock: $X              # individual command name and corresponding actions
+      reset_unlock: ""
+      move: X
+      move_check: X
+    
+    cnt_motion:              # name of the Grbl Module 
+      network:               # network parameters
+          ip: "192.168.0.203" 
+          port: 8882
+          timeout: 10
+          buffer_size: 4096
+    
+    whs_motion:             # Another Grbl Module in house and its network params
+      network:
+        ip: "1921.168.0.204"
+        port: 8882
+        timeout: 10
+        buffer_size: 4096
+    
+
 
 #### Settings: 
 In case of Grbl module, the custom settings are defined in **YAML** 
@@ -53,7 +79,7 @@ In case of Grbl module, the custom settings are defined in **YAML**
 
 
 
-### Building module component and Module 
+### Building a Software Module
 
 To create a class for a new Software Module, we have to inherit the **Module** base class
 
@@ -66,20 +92,27 @@ To create a class for a new Software Module, we have to inherit the **Module** b
 
 
 
-A Software Module should be constructed with [Module Component](#module-component) object which can constructed using 
-
-    build_module_component(yaml_name:str, module_name: str) 
+A new Software Module should inherit from the Module Base class.
     
-    o yaml_name - denotes the name of the YAML file which contains information about
-                  building blocks for SoftwareModule
-    o module_name - name of the associated Hardware Module.
+    class SampleModule(Module):
+    yaml_file_name = "sample_module.yaml" # name of the yaml file containing the configuration
+                                            settings for the Software Module
 
-    
-The example implementation is given in **main.py** and **Sampe_Module.py**
+    def __init__(self, module_name: str):
+        eol: str = "\n"
+        ack_str: str = "ok" + eol
+        Module.__init__(
+            self,
+            eol=eol,
+            ack_str=ack_str,
+            yaml_file=self.yaml_file_name,
+            module_name=module_name)   # Initialize the Module base class with End of line identifier
+                                         acknowledgement string, yaml file name and individual module 
+                                         name
 
-    Step1: Create a Software Module class for its corresponding Hardware Module
 
-    Step2: Build the components required for the Hardware and create the object for the Software Module
+
+
 
 
 
