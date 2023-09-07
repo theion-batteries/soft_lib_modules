@@ -65,7 +65,6 @@ requests-toolbelt==1.0.0
 retry==0.9.2
 shellingham==1.5.3
 six==1.16.0
--e git+https://github.com/theion-batteries/soft_lib_modules.git@50d9111132b96ac27cb26a24d48ec63e87a7a77b#egg=theiondevices
 tomlkit==0.12.1
 trove-classifiers==2023.8.7
 urllib3==2.0.4
