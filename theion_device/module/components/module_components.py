@@ -6,7 +6,7 @@ from yaml import YAMLObject
 from ..communication import Client
 from .network_parameters import NetworkParam
 
-# from src.communication import Client
+# from theion_device.communication import Client
 
 
 @dataclass

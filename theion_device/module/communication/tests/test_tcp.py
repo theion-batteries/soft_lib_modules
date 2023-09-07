@@ -5,8 +5,8 @@ from unittest.mock import patch
 
 import pytest
 
-from src.module.communication.src.response import Response
-from src.module.communication.src.tcp import TCPStreamClient
+from theion_device.module.communication.src.response import Response
+from theion_device.module.communication.src.tcp import TCPStreamClient
 
 
 @pytest.mark.skiptest
@@ -52,7 +52,7 @@ async def test_tcp_context():
         client1 = client
 
 
-tcp = "src.communication.src.tcp."
+tcp = "theion_device.communication.theion_device.tcp."
 
 
 @patch.object(TCPStreamClient, "send_message")

@@ -1,7 +1,7 @@
 import logging
 from functools import wraps
 
-from src.module.communication.src.response import Response
+from theion_device.module.communication.src.response import Response
 
 
 def handle_response(response: list[Response] | Response) -> bool:

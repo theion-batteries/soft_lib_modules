@@ -1,8 +1,8 @@
 from os import path
 
 from conftest import settings_dir
-from src.module.builder.grbl_settings_builder import build_grbl_settings
-from src.util import logger
+from theion_device.module.builder.grbl_settings_builder import build_grbl_settings
+from theion_device.util import logger
 
 
 def test_build_grbl_settings():

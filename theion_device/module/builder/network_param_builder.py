@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 import yaml
 
-from src.util import logger
+from theion_device.util import logger
 
 from ..components.network_parameters import NetworkParam
 

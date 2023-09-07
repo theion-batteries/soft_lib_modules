@@ -1,8 +1,8 @@
 import os
 
 from conftest import settings_dir
-from src.module.grbl_module.grbl_settings_parser import GrblSettingsParser
-from src.util import logger
+from theion_device.module.grbl_module.grbl_settings_parser import GrblSettingsParser
+from theion_device.util import logger
 
 
 def test_grbl_settings_parser():

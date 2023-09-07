@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from src.util import LOG_CONFIG_TRACE_CONSOLE_ONLY, Log
+from theion_device.util import LOG_CONFIG_TRACE_CONSOLE_ONLY, Log
 
 root_dir = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 

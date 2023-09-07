@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 
-from .src import (Client, GrblModule, KeyenceClient, MeteorClient, Module,
-                  ModuleComponent, ModuleFactory, NetworkParam, Response,
-                  SerialStreamClient, TCPStreamClient, build_grbl_settings,
-                  build_module_component, logger)
+from .theion_device import (Client, GrblModule, KeyenceClient, MeteorClient, Module,
+                            ModuleComponent, ModuleFactory, NetworkParam, Response,
+                            SerialStreamClient, TCPStreamClient, build_grbl_settings,
+                            build_module_component, logger)

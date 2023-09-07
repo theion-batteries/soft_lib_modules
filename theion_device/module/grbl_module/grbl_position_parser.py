@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass
 from typing import Callable, Dict
 
-from src.util import logger
+from theion_device.util import logger
 
 
 @dataclass

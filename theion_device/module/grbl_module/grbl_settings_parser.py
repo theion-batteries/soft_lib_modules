@@ -2,7 +2,7 @@ import os
 
 import yaml
 
-from src.util import logger
+from theion_device.util import logger
 
 
 class GrblSettingsParser:

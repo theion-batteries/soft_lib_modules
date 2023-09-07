@@ -2,7 +2,7 @@ import logging
 
 import pytest
 
-from src.module.grbl_module.grbl_position_parser import GrblStatusQueryParser
+from theion_device.module.grbl_module.grbl_position_parser import GrblStatusQueryParser
 
 
 @pytest.fixture

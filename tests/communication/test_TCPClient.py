@@ -2,7 +2,7 @@ import logging
 
 import pytest
 
-from src.module.communication import Client, TCPStreamClient
+from theion_device.module.communication import Client, TCPStreamClient
 
 
 @pytest.mark.skiptest

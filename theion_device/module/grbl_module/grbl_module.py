@@ -4,7 +4,7 @@ from typing import Dict
 
 from pubsub import pub
 
-from src.util import logger
+from theion_device.util import logger
 
 from ..builder import build_grbl_settings
 from ..communication import Response

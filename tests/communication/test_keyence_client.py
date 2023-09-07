@@ -2,9 +2,9 @@ import time
 
 import pytest
 
-from src.module.communication.src.client import Client
-from src.module.communication.src.keyence import KeyenceClient
-from src.util import logger
+from theion_device.module.communication.src.client import Client
+from theion_device.module.communication.src.keyence import KeyenceClient
+from theion_device.util import logger
 
 
 @pytest.mark.skiptest

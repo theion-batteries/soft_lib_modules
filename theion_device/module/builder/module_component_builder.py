@@ -3,7 +3,7 @@ from typing import Optional
 
 import yaml
 
-from src.util import logger
+from theion_device.util import logger
 
 from ..communication import (Client, KeyenceClient, MeteorClient,
                              TCPStreamClient)

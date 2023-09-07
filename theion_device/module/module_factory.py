@@ -18,7 +18,7 @@ class ModuleFactory:
 
     def register_module(self):
         """This method dynamically register different module to the dictionary"""
-        current_module = sys.modules["src.module"]
+        current_module = sys.modules["theion_device.module"]
         module_name = "Module"
         for name, obj in inspect.getmembers(current_module):
             is_obj = inspect.isclass(obj)
