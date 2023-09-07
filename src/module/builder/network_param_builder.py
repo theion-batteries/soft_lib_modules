@@ -2,8 +2,7 @@ from __future__ import absolute_import
 
 import yaml
 
-from . import logger
-#from src.util import logger
+from src.util import logger
 
 from ..components.network_parameters import NetworkParam
 
