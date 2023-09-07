@@ -9,7 +9,7 @@ def get_keyence_lib():
 
     if not os.path.exists(dll_path):
         # Give up if none of the above succeeded:
-        raise Exception('Could not locate ' + dll_path)
+        raise Exception("Could not locate " + dll_path)
 
     keyence_lib = ctypes.cdll.LoadLibrary(dll_path)
     keyence_lib.keyence_connect.argtypes = (ctypes.c_wchar_p,)
@@ -48,8 +48,8 @@ def get_meteor_lib():
 
 if __name__ == "__main__":
     key_lib = get_keyence_lib()
-    #res = key_lib.keyence_connect("192.168.0.105")
-    #print(res)
+    # res = key_lib.keyence_connect("192.168.0.105")
+    # print(res)
     """ lib = get_meteor_lib()
     try:
         file_name = b"C:\\Users\\PrintHead\\Desktop\\THEION\\MeteorAPI\\images\\img_n0_g0_s300_t8_f6000_d39.36.png"

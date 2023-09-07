@@ -1,12 +1,7 @@
 import os
 from pathlib import Path
 
-
-from src.util import (
-    LOG_CONFIG_TRACE_CONSOLE_ONLY,
-    Log
-)
-
+from src.util import LOG_CONFIG_TRACE_CONSOLE_ONLY, Log
 
 root_dir = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 
@@ -20,8 +15,6 @@ CONFIG_DIR = os.path.join(ROOT_DIR, "config")
 SETTINGS_DIR = os.path.join(CONFIG_DIR, "settings")
 
 STEP_DIR = os.path.join(ROOT_DIR, "instructions")
-
-
 
 
 LOG_CONFIG_MODE = LOG_CONFIG_TRACE_CONSOLE_ONLY

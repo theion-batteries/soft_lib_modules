@@ -32,9 +32,6 @@ class ModuleFactory:
                 ):  # register modules to the factory
                     self._module_type[name] = obj
 
-
-
-
     def get_module(self, module_component: ModuleComponent) -> Module:
         """create the Module instance using ModuleFactory
 

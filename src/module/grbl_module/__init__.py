@@ -1,4 +1,4 @@
-__all__ = ["GrblModule", "GrblStatusQueryParser","GrblSettingsParser"]
+__all__ = ["GrblModule", "GrblStatusQueryParser", "GrblSettingsParser"]
 
 
 from .grbl_module import GrblModule

@@ -1,9 +1,8 @@
-from os.path import abspath, join, dirname
-import sys
 import os
+import sys
+from os.path import abspath, dirname, join
 
 from dotenv import load_dotenv
-
 
 git_repo_path = abspath(join(dirname(__file__), "."))
 sys.path.insert(0, git_repo_path)

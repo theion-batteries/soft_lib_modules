@@ -5,11 +5,8 @@ from typing import Optional
 from src.util import logger
 
 from .client import Client
-from .exception_handler import (
-    StreamExceptionHandler,
-    StreamReadExceptionHandler,
-    TCPClientException,
-)
+from .exception_handler import (StreamExceptionHandler,
+                                StreamReadExceptionHandler, TCPClientException)
 from .response import Response
 from .retry import retry
 

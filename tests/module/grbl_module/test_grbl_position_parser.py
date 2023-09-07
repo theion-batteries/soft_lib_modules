@@ -2,7 +2,6 @@ import logging
 
 import pytest
 
-
 from src.module.grbl_module.grbl_position_parser import GrblStatusQueryParser
 
 

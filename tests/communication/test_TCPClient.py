@@ -4,6 +4,7 @@ import pytest
 
 from src.module.communication import Client, TCPStreamClient
 
+
 @pytest.mark.skiptest
 @pytest.mark.asyncio
 async def test_sample_connection():

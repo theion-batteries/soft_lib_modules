@@ -7,18 +7,10 @@ from pubsub import pub
 from src.util import logger
 
 from ..builder import build_grbl_settings
-
-
-
-from .grbl_position_parser import (
-    GrblStatus,
-    GrblStatusQueryParser,
-)
-
-
 from ..communication import Response
 from ..components import ModuleComponent
 from ..module import Module
+from .grbl_position_parser import GrblStatus, GrblStatusQueryParser
 
 
 class GrblModule(Module):

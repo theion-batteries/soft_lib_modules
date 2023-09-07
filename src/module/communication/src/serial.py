@@ -4,7 +4,8 @@ from typing import Optional
 import serial_asyncio
 
 from .client import Client
-from .exception_handler import StreamExceptionHandler, StreamReadExceptionHandler
+from .exception_handler import (StreamExceptionHandler,
+                                StreamReadExceptionHandler)
 
 
 class SerialStreamClient(Client):

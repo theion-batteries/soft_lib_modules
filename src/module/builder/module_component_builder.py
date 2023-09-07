@@ -5,13 +5,8 @@ import yaml
 
 from src.util import logger
 
-from ..communication import (
-    Client,
-    KeyenceClient,
-    MeteorClient,
-    TCPStreamClient,
-)
-
+from ..communication import (Client, KeyenceClient, MeteorClient,
+                             TCPStreamClient)
 from ..components import ModuleComponent, NetworkParam
 from .network_param_builder import build_network_param
 
