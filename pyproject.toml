@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["saravanan-theion <saravanan@theion.de>"]
 readme = "README.md"
-packages = [{include = "module", from = "theion_device"}, {include = "util", from = "theion_device"}]
+packages = [{include = "theion_device"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
