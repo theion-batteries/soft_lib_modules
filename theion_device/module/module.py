@@ -1,10 +1,13 @@
+import os
 import time
 from abc import ABC
 
 import yaml
+from dotenv import load_dotenv
 
 from theion_device.util import logger
 
+from .builder import build_module_component
 from .communication import Response, retry
 from .components import ModuleComponent
 
@@ -12,15 +15,23 @@ from .components import ModuleComponent
 class Module(ABC):
     """Base class for all the Modules. It encapsulate functions required for individual models"""
 
-    def __init__(self, eol: str, ack_str: str, module_component: ModuleComponent):
+    def __init__(
+        self, eol: str, ack_str: str, yaml_file: str = "", module_name: str = ""
+    ):
         """
         Parameters
         ---------
         eof: str
         ack_str: str
-        module_component: ModuleComponent
+        yaml_file:  str
 
         """
+
+        load_dotenv()
+        config_dir = os.getenv("CONFIG_DIR")
+        yaml_file_path = os.path.join(config_dir, yaml_file)
+        module_component = build_module_component(yaml_file_path, module_name)
+
         self._ack_str = ack_str
         self._eol = eol
         self._module_name: str = module_component.module_name

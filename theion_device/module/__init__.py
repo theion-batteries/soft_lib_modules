@@ -12,7 +12,6 @@ __all__ = [
     "Response",
     "SerialStreamClient",
     "MeteorClient",
-    "ModuleFactory",
 ]
 
 
@@ -24,4 +23,3 @@ from .communication import (Client, KeyenceClient, MeteorClient, Response,
 from .components import ModuleComponent, NetworkParam
 from .grbl_module import GrblModule
 from .module import Module
-from .module_factory import ModuleFactory

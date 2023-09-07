@@ -1,7 +1,8 @@
 import os
 
 from conftest import test_dir
-from theion_device.module.builder.module_component_builder import build_module_component
+from theion_device.module.builder.module_component_builder import \
+    build_module_component
 
 
 def test_build_module_component():

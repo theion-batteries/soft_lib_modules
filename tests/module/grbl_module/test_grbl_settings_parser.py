@@ -1,7 +1,8 @@
 import os
 
 from conftest import settings_dir
-from theion_device.module.grbl_module.grbl_settings_parser import GrblSettingsParser
+from theion_device.module.grbl_module.grbl_settings_parser import \
+    GrblSettingsParser
 from theion_device.util import logger
 
 

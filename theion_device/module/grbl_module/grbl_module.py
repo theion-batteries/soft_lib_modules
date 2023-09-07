@@ -1,12 +1,15 @@
 import functools
+import os
 import time
+from os import getenv, path
 from typing import Dict
 
+from dotenv import load_dotenv
 from pubsub import pub
 
 from theion_device.util import logger
 
-from ..builder import build_grbl_settings
+from ..builder import build_grbl_settings, build_module_component
 from ..communication import Response
 from ..components import ModuleComponent
 from ..module import Module
@@ -28,17 +31,27 @@ class GrblModule(Module):
     unknown_position: float = (
         0.0  # if position is 0.0, grbl module is in non deterministic state
     )
+    yaml_file_name = "grbl_module.yaml"
 
-    def __init__(self, module_component: ModuleComponent):
+    def __init__(self, module_name: str):
         """Init the GrblModule
          Parameters
         ----------
         module_component : ModuleComponent
+        file_name: str
+            yaml file name
 
         """
+
         eol: str = "\n"
         ack_str: str = "ok" + eol
-        Module.__init__(self, eol, ack_str, module_component)
+        Module.__init__(
+            self,
+            eol=eol,
+            ack_str=ack_str,
+            yaml_file=self.yaml_file_name,
+            module_name=module_name,
+        )
 
         self._current_step_feed_rate = 0.0
 

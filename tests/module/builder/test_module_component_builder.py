@@ -4,7 +4,8 @@ import pytest
 import yaml
 
 from conftest import config_dir
-from theion_device.module.builder.module_component_builder import build_module_component
+from theion_device.module.builder.module_component_builder import \
+    build_module_component
 from theion_device.util import logger
 
 

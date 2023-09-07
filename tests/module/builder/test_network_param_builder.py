@@ -3,7 +3,8 @@ import os
 import yaml
 
 from conftest import test_dir
-from theion_device.module.builder.network_param_builder import build_network_param
+from theion_device.module.builder.network_param_builder import \
+    build_network_param
 from theion_device.util import logger
 
 
